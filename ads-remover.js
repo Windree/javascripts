@@ -13,7 +13,7 @@
 // @supportURL   https://github.com/Windree/javascripts/issues
 
 // @updateURL    https://raw.githubusercontent.com/Windree/javascripts/main/ads-remover.js
-// @downloadURL  https://raw.githubusercontent.com/Windree/javascripts/main/ads-remover.js
+// @downloadURL  https://github.com/Windree/javascripts/blob/main/ads-remover.js
 
 // @include  /^https?://(\w+\.)yandex\.(ru|com)//
 // @include  /^https?://(\w+\.)dzen\.ru//
@@ -30,7 +30,7 @@
     function hideElement(element, property, filter) {
         var all = Array.from(document.querySelectorAll(element));
         var elements = property && filter && all.filter(el => (filter.test && filter.test(el[property]) || el[property] === filter)) || all;
-        elements.forEach(el => {el.style.display = 'none'});
+        elements.forEach(el => { el.style.display = 'none'; });
     }
     // dzen.ru top banner
     hideElement("div", "className", new RegExp(/banner/));
