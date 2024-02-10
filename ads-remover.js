@@ -15,8 +15,9 @@
 // @updateURL    https://raw.githubusercontent.com/Windree/javascripts/main/ads-remover.js
 // @downloadURL  https://github.com/Windree/javascripts/blob/main/ads-remover.js
 
-// @include  /^https?://(\w+\.)yandex\.(ru|com)//
-// @include  /^https?://(\w+\.)dzen\.ru//
+// @match  *://*.yandex.ru/
+// @match  *://*.yandex.com/
+// @match  *://*.dzen.ru/
 
 // @grant none
 
