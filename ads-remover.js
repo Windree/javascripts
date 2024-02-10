@@ -12,8 +12,8 @@
 // @homepageURL  https://openuserjs.org/scripts/Windree
 // @supportURL   https://github.com/Windree/javascripts/issues
 
-// @updateURL    https://github.com/Windree/javascripts/blob/main/ads-remover.js
-// @downloadURL  https://github.com/Windree/javascripts/blob/main/ads-remover.js
+// @updateURL    https://raw.githubusercontent.com/Windree/javascripts/main/ads-remover.js
+// @downloadURL  https://raw.githubusercontent.com/Windree/javascripts/main/ads-remover.js
 
 // @include  /^https?://(\w+\.)yandex\.(ru|com)//
 // @include  /^https?://(\w+\.)dzen\.ru//
