@@ -18,6 +18,7 @@
 // @match  *://*.yandex.ru/
 // @match  *://*.yandex.com/
 // @match  *://*.dzen.ru/
+// @match  *://*.mail.ru/
 
 // @grant none
 
@@ -28,23 +29,41 @@
 // ==/OpenUserJS==
 
 (function () {
-    function hideElement(element, property, filter) {
-        var all = Array.from(document.querySelectorAll(element));
-        var elements = property && filter && all.filter(el => (filter.test && filter.test(el[property]) || el[property] === filter)) || all;
-        elements.forEach(el => { el.style.display = 'none'; });
-    }
-    // dzen.ru top banner
-    hideElement("div", "className", new RegExp(/banner/));
+    (function () {
+        function hideElements(elements) {
+            elements.forEach(el => { el.style.display = 'none'; });
+        }
 
-    // yandex ads
-    hideElement("div", "className", new RegExp(/^ya_partner/));
+        function getElements(element, property, filter) {
+            var all = Array.from(document.querySelectorAll(element));
+            return property && filter && all.filter(el => (filter.test && filter.test(el[property]) || el[property] === filter)) || all;
+        }
 
-    // yandex direct
-    hideElement("div.banner");
+        function main() {
+            // dzen.ru top banner
+            hideElements(getElements("div", "className", new RegExp(/banner/)));
 
-    // yandex search results right banner
-    hideElement("div[id='search-result-aside']");
+            // yandex ads
+            hideElements(getElements("div", "className", new RegExp(/^ya_partner/)));
+            hideElements(getElements("div", "className", new RegExp(/^Adv.+-Slot/)));
 
-    // yandex market banner
-    hideElement("section", "ariaLabel", "Акции");
+            // yandex direct
+            hideElements(getElements("div.banner"));
+
+            // yandex search results right banner
+            hideElements(getElements("div[id='search-result-aside']"));
+
+            // yandex market banner
+            hideElements(getElements("div", "innerText", "Акции"));
+
+            //mail.ru top banner
+            hideElements(getElements("div", "className", "only-new-toolbar new-menu").map(el => el.previousElementSibling))
+
+            //mail.ru side banner
+            hideElements(getElements("div", "innerText", "Убрать рекламу"))
+            
+        }
+
+        window.setInterval(main, 1000)
+    })()
 })()
