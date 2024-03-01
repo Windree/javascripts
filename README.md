@@ -1,6 +1,9 @@
-# ads-remover.js убирает рекламу
-## yandex.ru
-## yandex.com
-## dzen.ru
-## mail.ru
+# Следующее поколение блокираторов рекламы
+Сайты научились обходить фильтры, использующие css селекторы
+
+## ads-remover.js убирает рекламу
+* yandex.ru
+* yandex.com
+* dzen.ru
+* mail.ru
 
